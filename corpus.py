@@ -36,12 +36,8 @@ def get_file_content(file_path):
     '''
     1つの記事を読み込み
     '''
-    ret = ''
-    with open(file_path) as f:
-        tmp = [line for line in f.readlines()][2:]  # ライブドアコーパスが3行目から本文はじまってるから
-        ret = ''.join(tmp)
-
-    return ret
+    with open(file_path, encoding='utf-8') as f:
+        return ''.join(f.readlines()[2:])  # ライブドアコーパスが3行目から本文はじまってるから
 
 
 def tokenize(text):
